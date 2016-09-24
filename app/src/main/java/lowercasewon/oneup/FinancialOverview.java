@@ -5,7 +5,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.reimaginebanking.api.nessieandroidsdk.requestclients.NessieClient;
+
+
 public class FinancialOverview extends AppCompatActivity {
+    public NessieClient client = NessieClient.getInstance("88d32ed949123a777cc5763009fbe502");
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
