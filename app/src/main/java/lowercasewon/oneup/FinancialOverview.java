@@ -37,7 +37,7 @@ public class FinancialOverview extends AppCompatActivity {
     public static boolean hasFourK;
     public static int rothIraPercent;
     public static ArrayList debtList;
-    public static double totalMonthlyIncome;
+    public static double totalMonthlyIncum;
     public NessieClient client = NessieClient.getInstance("88d32ed949123a777cc5763009fbe502");
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
