@@ -86,6 +86,11 @@ public class FinancialOverview extends AppCompatActivity {
         });
     }
 
+    public NessieClient getClient(){
+        return client;
+    }
+
+
     @Override
     public void onStart() {
         super.onStart();

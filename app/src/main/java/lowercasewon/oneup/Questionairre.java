@@ -5,12 +5,36 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.reimaginebanking.api.nessieandroidsdk.models.Bill;
+import com.reimaginebanking.api.nessieandroidsdk.requestclients.NessieClient;
+
+import java.util.ArrayList;
+import java.util.Objects;
+
 public class Questionairre extends AppCompatActivity {
+    public String name;
+    public String email;
+    public String password;
+    public int age;
+    public double averageMonthlyIncome;
+    public double savingsPercentage;
+    public double investmentPercentage;
+    public boolean longTermJob;
+    public boolean fourKOffer;
+    public boolean hasFourK;
+    public FinancialOverview fo;
+    public ArrayList debtList;
+    public NessieClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questionairre);
+        fo = new FinancialOverview();
+        client = fo.getClient();
+        debtList = new ArrayList<>();
+
+
     }
 
     @Override
