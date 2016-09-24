@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">OneUp</string>
+    <string name="title_activity_financial_overview">FinancialOverview</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_monthly_statements">MonthlyStatements</string>
+    <string name="title_activity_debt_tracker">DebtTracker</string>
+    <string name="title_activity_investment_portfolio">InvestmentPortfolio</string>
+    <string name="title_activity_monthly_averages">MonthlyAverages</string>
+    <string name="title_activity_questionairre">Questionairre</string>
+    <string name="title_activity_settings_page">SettingsPage</string>
+    <string name="title_activity_current_debts">CurrentDebts</string>
+    <string name="title_activity_current_investments">CurrentInvestments</string>
+    <string name="title_activity_spending_habits">SpendingHabits</string>
+    <string name="title_activity_bank_atm">BankATM</string>
+</resources>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="lowercasewon.oneup" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".FinancialOverview"
+            android:label="@string/title_activity_financial_overview" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MonthlyStatements"
+            android:label="@string/title_activity_monthly_statements" >
+        </activity>
+        <activity
+            android:name=".DebtTracker"
+            android:label="@string/title_activity_debt_tracker" >
+        </activity>
+        <activity
+            android:name=".InvestmentPortfolio"
+            android:label="@string/title_activity_investment_portfolio" >
+        </activity>
+        <activity
+            android:name=".MonthlyAverages"
+            android:label="@string/title_activity_monthly_averages" >
+        </activity>
+        <activity
+            android:name=".Questionairre"
+            android:label="@string/title_activity_questionairre" >
+        </activity>
+        <activity
+            android:name=".SettingsPage"
+            android:label="@string/title_activity_settings_page" >
+        </activity>
+        <activity
+            android:name=".CurrentDebts"
+            android:label="@string/title_activity_current_debts" >
+        </activity>
+        <activity
+            android:name=".CurrentInvestments"
+            android:label="@string/title_activity_current_investments" >
+        </activity>
+        <activity
+            android:name=".SpendingHabits"
+            android:label="@string/title_activity_spending_habits" >
+        </activity>
+        <activity
+            android:name=".BankATM"
+            android:label="@string/title_activity_bank_atm" >
+        </activity>
+    </application>
+
+</manifest>
