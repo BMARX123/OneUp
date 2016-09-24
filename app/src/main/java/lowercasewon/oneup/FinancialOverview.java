@@ -1,12 +1,17 @@
 package lowercasewon.oneup;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
+import com.github.clans.fab.FloatingActionButton;
+import com.github.clans.fab.FloatingActionMenu;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
@@ -39,11 +44,15 @@ public class FinancialOverview extends AppCompatActivity {
     public static ArrayList debtList;
     public static double totalMonthlyIncum;
     public static double moneySpentThisMonth;
+    public Context c = this;
     public NessieClient client = NessieClient.getInstance("88d32ed949123a777cc5763009fbe502");
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
+
+    FloatingActionMenu materialDesignFAM;
+    FloatingActionButton floatingActionButton1, floatingActionButton2, floatingActionButton3, floatingActionButton4, floatingActionButton5, floatingActionButton6, floatingActionButton7;
 
 
 
@@ -54,6 +63,71 @@ public class FinancialOverview extends AppCompatActivity {
         setContentView(R.layout.activity_financial_overview);
         Customer customer = new Customer.Builder().firstName(firstName).lastName(lastName).build();
         Account myAccount = new Account.Builder().accountNumber(customer.getId()).balance(0).rewards(0).build();
+
+        materialDesignFAM = (FloatingActionMenu) findViewById(R.id.social_floating_menu);
+        floatingActionButton1 = (FloatingActionButton) findViewById(R.id.settings);
+        floatingActionButton2 = (FloatingActionButton) findViewById(R.id.financialoverview);
+        floatingActionButton3 = (FloatingActionButton) findViewById(R.id.monthlystatements);
+        floatingActionButton4 = (FloatingActionButton) findViewById(R.id.debttracker);
+        floatingActionButton5 = (FloatingActionButton) findViewById(R.id.investmentportfolio);
+        floatingActionButton6 = (FloatingActionButton) findViewById(R.id.bankatm);
+        floatingActionButton7 = (FloatingActionButton) findViewById(R.id.addevent);
+
+
+        floatingActionButton1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //TODO something when floating action menu first item clicked
+                Intent i = new Intent(c , SettingsPage.class);
+                startActivity(i);
+
+
+            }
+        });
+        floatingActionButton2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //TODO something when floating action menu second item clicked
+                Intent i = new Intent(c , FinancialOverview.class);
+                startActivity(i);
+
+            }
+        });
+        floatingActionButton3.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //TODO something when floating action menu third item clicked
+                Intent i = new Intent(c , MonthlyStatements.class);
+                startActivity(i);
+            }
+        });
+
+        floatingActionButton4.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //TODO something when floating action menu first item clicked
+                Intent i = new Intent(c , DebtTracker.class);
+                startActivity(i);
+            }
+        });
+        floatingActionButton5.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //TODO something when floating action menu second item clicked
+                Intent i = new Intent(c , InvestmentPortfolio.class);
+                startActivity(i);
+            }
+        });
+        floatingActionButton6.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //TODO something when floating action menu third item clicked
+                Intent i = new Intent(c , BankATM.class);
+                startActivity(i);
+            }
+        });
+        floatingActionButton7.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //TODO something when floating action menu third item clicked
+                Intent i = new Intent(c , AddEvent.class);
+                startActivity(i);
+            }
+        });
+
     }
 
     @Override

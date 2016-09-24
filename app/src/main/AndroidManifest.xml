@@ -29,7 +29,7 @@
             android:label="@string/title_activity_investment_portfolio" >
         </activity>
         <activity
-            android:name=".MonthlyAverages"
+            android:name=".AddEvent"
             android:label="@string/title_activity_monthly_averages" >
         </activity>
         <activity
