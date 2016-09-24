@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="lowercasewon.oneup" >
+    package="lowercasewon.oneup">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".FinancialOverview"
-            android:label="@string/title_activity_financial_overview" >
+            android:label="@string/title_activity_financial_overview">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,44 +20,41 @@
         </activity>
         <activity
             android:name=".MonthlyStatements"
-            android:label="@string/title_activity_monthly_statements" >
-        </activity>
+            android:label="@string/title_activity_monthly_statements" />
         <activity
             android:name=".DebtTracker"
-            android:label="@string/title_activity_debt_tracker" >
-        </activity>
+            android:label="@string/title_activity_debt_tracker" />
         <activity
             android:name=".InvestmentPortfolio"
-            android:label="@string/title_activity_investment_portfolio" >
-        </activity>
+            android:label="@string/title_activity_investment_portfolio" />
         <activity
-            android:name=".MonthlyAverages"
-            android:label="@string/title_activity_monthly_averages" >
-        </activity>
+            android:name=".AddEvent"
+            android:label="@string/title_activity_monthly_averages" />
         <activity
             android:name=".SettingsPage"
-            android:label="@string/title_activity_settings_page" >
-        </activity>
+            android:label="@string/title_activity_settings_page" />
         <activity
             android:name=".CurrentDebts"
-            android:label="@string/title_activity_current_debts" >
-        </activity>
+            android:label="@string/title_activity_current_debts" />
         <activity
             android:name=".CurrentInvestments"
-            android:label="@string/title_activity_current_investments" >
-        </activity>
+            android:label="@string/title_activity_current_investments" />
         <activity
             android:name=".SpendingHabits"
-            android:label="@string/title_activity_spending_habits" >
-        </activity>
+            android:label="@string/title_activity_spending_habits" />
         <activity
             android:name=".BankATM"
-            android:label="@string/title_activity_bank_atm" >
-        </activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
-     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+            android:label="@string/title_activity_bank_atm" />
+        <!--
+ ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <activity android:name=".Q1" />
+        <activity android:name=".Q2"></activity>
     </application>
 
 </manifest>
