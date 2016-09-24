@@ -33,10 +33,6 @@
             android:label="@string/title_activity_monthly_averages" >
         </activity>
         <activity
-            android:name=".Questionairre"
-            android:label="@string/title_activity_questionairre" >
-        </activity>
-        <activity
             android:name=".SettingsPage"
             android:label="@string/title_activity_settings_page" >
         </activity>

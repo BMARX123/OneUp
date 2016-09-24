@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import static lowercasewon.oneup.FinancialOverview.client;
 
 public class BankATM extends AppCompatActivity {
 
@@ -13,6 +12,8 @@ public class BankATM extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bank_atm);
+
+
     }
 
     @Override
