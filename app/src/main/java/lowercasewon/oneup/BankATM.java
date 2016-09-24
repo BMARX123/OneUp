@@ -21,7 +21,9 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.reimaginebanking.api.nessieandroidsdk.NessieError;
+import com.reimaginebanking.api.nessieandroidsdk.models.*;
 import com.reimaginebanking.api.nessieandroidsdk.NessieResultsListener;
+import com.reimaginebanking.api.nessieandroidsdk.models.PaginatedResponse;
 import com.reimaginebanking.api.nessieandroidsdk.requestclients.NessieClient;
 
 
@@ -99,9 +101,20 @@ public class BankATM extends AppCompatActivity {
             location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
             longitude = (float) location.getLongitude();
             latitude = (float) location.getLatitude();
-            client.ATM.getATMs(latitude,longitude, (float)1000, listener);
+            client.ATM.getATMs(latitude, longitude, (float) 1000, new NessieResultsListener() {
+                @Override
+                public void onSuccess(Object result) {
+                    PaginatedResponse<ATM> response = (PaginatedResponse<ATM>) result;
+                    System.out.println(response.getObjectList());
+                }
+
+                @Override
+                public void onFailure(NessieError error) {
+                    System.out.println("u fked up");
+                }
+            });
         }
-        
+
     }
 
     @Override
