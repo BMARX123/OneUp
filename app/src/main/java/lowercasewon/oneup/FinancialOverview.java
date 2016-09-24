@@ -53,7 +53,7 @@ public class FinancialOverview extends AppCompatActivity {
 
     FloatingActionMenu materialDesignFAM;
     FloatingActionButton floatingActionButton1, floatingActionButton2, floatingActionButton3, floatingActionButton4, floatingActionButton5, floatingActionButton6, floatingActionButton7;
-
+//MATT IS A FAG
 
 
 
@@ -64,7 +64,7 @@ public class FinancialOverview extends AppCompatActivity {
         Customer customer = new Customer.Builder().firstName(firstName).lastName(lastName).build();
         Account myAccount = new Account.Builder().accountNumber(customer.getId()).balance(0).rewards(0).build();
 
-        materialDesignFAM = (FloatingActionMenu) findViewById(R.id.social_floating_menu);
+        materialDesignFAM = (FloatingActionMenu) findViewById(R.id.social_floating_menutimisfag);
         floatingActionButton1 = (FloatingActionButton) findViewById(R.id.settings);
         floatingActionButton2 = (FloatingActionButton) findViewById(R.id.financialoverview);
         floatingActionButton3 = (FloatingActionButton) findViewById(R.id.monthlystatements);
