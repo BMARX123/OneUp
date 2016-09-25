@@ -84,7 +84,7 @@ public class FinancialOverview extends AppCompatActivity {
         floatingActionButton2 = (FloatingActionButton) findViewById(R.id.financialoverview);
         floatingActionButton3 = (FloatingActionButton) findViewById(R.id.monthlystatements);
         floatingActionButton4 = (FloatingActionButton) findViewById(R.id.debttracker);
-        floatingActionButton5 = (FloatingActionButton) findViewById(R.id.investmentportfolio);
+        //floatingActionButton5 = (FloatingActionButton) findViewById(R.id.investmentportfolio);
         floatingActionButton6 = (FloatingActionButton) findViewById(R.id.bankatm);
         floatingActionButton7 = (FloatingActionButton) findViewById(R.id.addevent);
 
@@ -122,13 +122,13 @@ public class FinancialOverview extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        floatingActionButton5.setOnClickListener(new View.OnClickListener() {
+       /* floatingActionButton5.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //TODO something when floating action menu second item clicked
                 Intent i = new Intent(c , InvestmentPortfolio.class);
                 startActivity(i);
             }
-        });
+        });*/
         floatingActionButton6.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //TODO something when floating action menu third item clicked
