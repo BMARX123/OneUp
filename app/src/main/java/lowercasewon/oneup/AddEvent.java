@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class AddEvent extends AppCompatActivity {
-    public Context d;
+    public Context d = this;
     public Bill temp;
     EditText billName;
     EditText monthlyDue;
@@ -36,9 +36,9 @@ public class AddEvent extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View i) {
                 tempMonthly = Double.parseDouble(monthlyDue.getText().toString());
+                tempBill = billName.getText().toString();
                 tempIntrest = Double.parseDouble(intrestRate.getText().toString());
                 tempTotal = Double.parseDouble(totalDue.getText().toString());
-                tempBill = billName.getText().toString();
 
                 Intent j = new Intent(d, CurrentDebts.class);
                 startActivity(j);
