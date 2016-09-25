@@ -37,8 +37,8 @@ public class Q2 extends AppCompatActivity {
                 FinancialOverview.savingsPercentage = Integer.parseInt(monthlySetAside.toString());
                 FinancialOverview.investmentPercentage = Integer.parseInt(percentInvest.toString());
 
-                /*Intent i = new Intent(c, Q3.class);
-                startActivity(i);*/
+                Intent i = new Intent(c, Q3.class);
+                startActivity(i);
 
             }
         });

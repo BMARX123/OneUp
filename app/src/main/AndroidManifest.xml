@@ -73,7 +73,11 @@
 
         <activity
             android:name=".BankATM"
-            android:label="@string/title_activity_bank_atm"></activity>
+            android:label="@string/title_activity_bank_atm" />
+        <activity android:name=".Q3" />
+        <activity android:name=".Q4" />
+        <activity android:name=".Q5" />
+        <activity android:name=".Q6"></activity>
     </application>
 
 </manifest>
