@@ -62,7 +62,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:id="@+id/button"
-        style="@style/Widget.AppCompat.Button.Colored" />
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:backgroundTint="@color/wallet_holo_blue_light" />
 
     <EditText
         android:layout_width="wrap_content"
