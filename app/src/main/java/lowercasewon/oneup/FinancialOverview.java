@@ -192,6 +192,7 @@ public class FinancialOverview extends AppCompatActivity {
         PieData data = new PieData(dataset);
         pieChart.setData(data);
         pieChart.animateY(5000);
+        Legend legend = pieChart.getLegend();
 
 
 

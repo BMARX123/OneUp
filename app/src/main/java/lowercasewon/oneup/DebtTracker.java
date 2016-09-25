@@ -13,6 +13,8 @@ import android.widget.TextView;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 
+import java.util.ArrayList;
+
 import static lowercasewon.oneup.R.id.textView;
 
 public class DebtTracker extends AppCompatActivity {
@@ -33,12 +35,17 @@ public class DebtTracker extends AppCompatActivity {
                 startActivity(j);
             }
         });
+        ArrayList<Bill> temp = FinancialOverview.debtList;
         TextView textView9 = (TextView) findViewById(R.id.textView9);
-        for(int c = 0; c < FinancialOverview.debtList.size() - 1; c++) {
-            Object temp = FinancialOverview.debtList.get(0);
-
+        Bill tempObj = new Bill("hi", 1, 1, 1);
+        for(int c = 1; c < FinancialOverview.debtList.size() - 1; c++) {
+            tempObj = temp.get(0);
+                if(temp.get(c).interestRate > temp.get(c).interestRate ) {
+                    tempObj = temp.get(c);
+                }
         }
-        textView9.setText("Current Prioritized Debt: = "); //use debt list to determine highest interest rate
+
+        textView9.setText("Current Prioritized Debt: = " + tempObj.getNameOfBill()); //use debt list to determine highest interest rate
         TextView textView10 = (TextView) findViewById(R.id.textView10);
         textView10.setText("Monthly Loan Progress: = "); //use debt list to find total paid/ total due
         TextView textView11 = (TextView) findViewById(R.id.textView11);
