@@ -195,10 +195,10 @@ public class FinancialOverview extends AppCompatActivity {
         pieChart = (PieChart) findViewById(R.id.chart);
 
         entries = new ArrayList<PieEntry>();
-            entries.add(new PieEntry((float)(totalMonthlyIncum*savingsPercentage) , "Total Savings"));
-            entries.add(new PieEntry((float)(totalMonthlyIncum*investmentPercentage), "Total Invested"));
+            entries.add(new PieEntry((float)(averageMonthlyIncome*savingsPercentage) , "Total Savings"));
+            entries.add(new PieEntry((float)(averageMonthlyIncome*investmentPercentage), "Total Invested"));
             entries.add(new PieEntry((float)(moneySpentThisMonth), "Total Spent"));
-            entries.add(new PieEntry((float)(totalMonthlyIncum - totalMonthlyIncum*savingsPercentage - totalMonthlyIncum*investmentPercentage - moneySpentThisMonth), "Total Left Over"));
+            entries.add(new PieEntry((float)(averageMonthlyIncome - averageMonthlyIncome*savingsPercentage - averageMonthlyIncome*investmentPercentage - moneySpentThisMonth), "Total Left Over"));
 
         dataset = new PieDataSet(entries, "# of Calls");
 
