@@ -10,7 +10,7 @@ public class AddEvent extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_monthly_averages);
+        setContentView(R.layout.activity_add_event);
     }
 
     @Override
