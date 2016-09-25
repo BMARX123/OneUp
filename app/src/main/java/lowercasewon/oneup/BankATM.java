@@ -37,12 +37,14 @@ public class BankATM extends FragmentActivity implements LocationListener, OnMap
     private GoogleMap mMap;
     // Declaring a Location Manager
     //protected LocationManager locationManager;
-
-    public BankATM(Context context) {
-        this.mContext = context;
+    //private final Context mContext = null;
+    public BankATM() {
         getLocation();
     }
-    private final Context mContext;
+    public BankATM(Context context) {
+        //this.mContext = context;
+        getLocation();
+    }
 
     // flag for GPS status
     boolean isGPSEnabled = false;
@@ -114,7 +116,7 @@ public class BankATM extends FragmentActivity implements LocationListener, OnMap
     public void onMapReady(final GoogleMap googleMap) {
 
 
-        client.ATM.getATMs((float) getLatitude(), (float)getLongitude(), (float) 1000, new NessieResultsListener() {
+        client.ATM.getATMs((float) getLatitude(), (float)getLongitude(), (float) 100000, new NessieResultsListener() {
             @Override
             public void onSuccess(Object result) {
                 PaginatedResponse<ATM> response = (PaginatedResponse<ATM>) result;
@@ -129,8 +131,10 @@ public class BankATM extends FragmentActivity implements LocationListener, OnMap
 
                     mMap.addMarker(new MarkerOptions().position(latlng));
                 }
-                latlng = new LatLng(response.getObjectList().get(0).getGeocode().getLng(),response.getObjectList().get(0).getGeocode().getLat());
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
+                //latlng = new LatLng(response.getObjectList().get(0).getGeocode().getLng(),response.getObjectList().get(0).getGeocode().getLat());
+                LatLng herelatlng = new LatLng(33.7784630,-84.3988810);
+                mMap.addMarker(new MarkerOptions().position(herelatlng));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(herelatlng));
             }
 
             @Override
