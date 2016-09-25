@@ -200,7 +200,7 @@ public class FinancialOverview extends AppCompatActivity {
             entries.add(new PieEntry((float)(moneySpentThisMonth), "Total Spent"));
             entries.add(new PieEntry((float)(averageMonthlyIncome - averageMonthlyIncome*savingsPercentage - averageMonthlyIncome*investmentPercentage - moneySpentThisMonth), "Total Left Over"));
 
-        dataset = new PieDataSet(entries, "# of Calls");
+        dataset = new PieDataSet(entries, "# of calls");
 
 
         labels = new ArrayList<String>();
