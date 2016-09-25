@@ -2,10 +2,13 @@ package lowercasewon.oneup;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -46,6 +49,7 @@ public class FinancialOverview extends AppCompatActivity {
     public static double moneySpentThisMonth;
     public Context c = this;
     public NessieClient client = NessieClient.getInstance("88d32ed949123a777cc5763009fbe502");
+    boolean test;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -64,6 +68,15 @@ public class FinancialOverview extends AppCompatActivity {
         Customer customer = new Customer.Builder().firstName(firstName).lastName(lastName).build();
         Account myAccount = new Account.Builder().accountNumber(customer.getId()).balance(0).rewards(0).build();
         debtList = new ArrayList();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        test = prefs.getBoolean("surveyed", true);
+
+
+        if(!prefs.getBoolean("surveyed", true)) {
+            prefs.edit().putBoolean("surveyed", false).apply();
+            Intent i = new Intent(c, Q1.class);
+            startActivity(i);
+        }
 
         materialDesignFAM = (FloatingActionMenu) findViewById(R.id.social_floating_menutimisfag);
         floatingActionButton1 = (FloatingActionButton) findViewById(R.id.settings);
@@ -80,6 +93,7 @@ public class FinancialOverview extends AppCompatActivity {
                 //TODO something when floating action menu first item clicked
                 Intent i = new Intent(c , SettingsPage.class);
                 startActivity(i);
+                System.out.print("BOOOOOOLEAN" + test);
 
 
             }
@@ -128,6 +142,9 @@ public class FinancialOverview extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+
+
 
 
 
