@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class AddEvent extends AppCompatActivity {
     public Context d = this;
@@ -40,8 +41,8 @@ public class AddEvent extends AppCompatActivity {
                 tempIntrest = Double.parseDouble(intrestRate.getText().toString());
                 tempTotal = Double.parseDouble(totalDue.getText().toString());
 
-                Intent j = new Intent(d, CurrentDebts.class);
-                startActivity(j);
+                Toast.makeText(getApplicationContext(), "Thank you. Please fill out again to add more debts",
+                        Toast.LENGTH_SHORT).show();
             }
         });
         //need prompts for interest rate, monthly due and total due
