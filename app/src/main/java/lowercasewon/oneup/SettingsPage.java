@@ -1,7 +1,11 @@
 package lowercasewon.oneup;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -27,14 +31,9 @@ public class SettingsPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_page);
-        reset = (Button)findViewById(R.id.retakeQ);
-        reset.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent i = new Intent(c, Q1.class);
-                startActivity(i);
-            }
-        });
+
         materialDesignFAM = (FloatingActionMenu) findViewById(R.id.social_floating_menutimisfag);
+        materialDesignFAM.bringToFront();
         floatingActionButton1 = (FloatingActionButton) findViewById(R.id.settings);
         floatingActionButton2 = (FloatingActionButton) findViewById(R.id.financialoverview);
         floatingActionButton3 = (FloatingActionButton) findViewById(R.id.monthlystatements);
@@ -42,6 +41,19 @@ public class SettingsPage extends AppCompatActivity {
         //floatingActionButton5 = (FloatingActionButton) findViewById(R.id.investmentportfolio);
         floatingActionButton6 = (FloatingActionButton) findViewById(R.id.bankatm);
         floatingActionButton7 = (FloatingActionButton) findViewById(R.id.addevent);
+      /*  floatingActionButton1.bringToFront();
+        floatingActionButton2.bringToFront();
+        floatingActionButton3.bringToFront();
+        floatingActionButton4.bringToFront();
+        floatingActionButton6.bringToFront();
+        floatingActionButton7.bringToFront();*/
+        reset = (Button)findViewById(R.id.retakeQ);
+        reset.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent i = new Intent(c, Q1.class);
+                startActivity(i);
+            }
+        });
 
 
         floatingActionButton1.setOnClickListener(new View.OnClickListener() {

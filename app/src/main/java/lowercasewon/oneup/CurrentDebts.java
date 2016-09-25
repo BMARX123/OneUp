@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
@@ -24,20 +25,36 @@ import java.util.ArrayList;
 
 
 public class CurrentDebts extends AppCompatActivity {
+
     Context c  = this  ;
     FloatingActionMenu materialDesignFAM;
     FloatingActionButton floatingActionButton1, floatingActionButton2, floatingActionButton3, floatingActionButton4, floatingActionButton5, floatingActionButton6, floatingActionButton7;
-
+    GridView gridview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_current_debts);
 
-        final GridView grid = (GridView) findViewById(R.id.gridView);
-        ArrayList items = FinancialOverview.debtList;
 
-        grid.setAdapter(new GridAdapter(FinancialOverview.debtList));
+        ArrayList<Bill> items = FinancialOverview.debtList;
+        ArrayList<String> w = new ArrayList<>();
+        int k = 0;
+
+        w.add("Name Of Debt");
+        w.add("Monthly Due");
+        w.add("Total Due");
+        for (Bill b : items ){
+            w.add(b.getNameOfBill());
+            //w.add(b.getInterestRate() + "");
+            w.add(b.getMonthlyDue() + "");
+            w.add(b.getTotalDue() + "");
+        }
+
+        gridview = (GridView)findViewById(R.id.gridView1);
+        ArrayAdapter<String> adpater = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, w);
+        gridview.setAdapter(adpater);
+
         materialDesignFAM = (FloatingActionMenu) findViewById(R.id.social_floating_menutimisfag);
         floatingActionButton1 = (FloatingActionButton) findViewById(R.id.settings);
         floatingActionButton2 = (FloatingActionButton) findViewById(R.id.financialoverview);
@@ -105,81 +122,9 @@ public class CurrentDebts extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_current_debts, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
-        return super.onOptionsItemSelected(item);
-    }
-
-    public static final class GridAdapter extends BaseAdapter {
-
-        private static final int ROW_ITEMS = 3;
-        final ArrayList<String> mItems;
-        final int mCount;
-
-        /**
-         * Default constructor
-         * @param items to fill data to
-         */
-        private GridAdapter(final ArrayList<Bill> items) {
-
-            mCount = items.size() * ROW_ITEMS;
-            mItems = new ArrayList<String>(mCount);
-
-            // for small size of items it's ok to do it here, sync way
-            for (int c = 0; c < items.size(); c++) {
-                String temp = items.get(c).getNameOfBill() + "," + items.get(c).monthlyDue + "," + items.get(c).getTotalDue();
-                mItems.add(temp);
-            }
-        }
-
-        @Override
-        public int getCount() {
-            return mCount;
-        }
-
-        @Override
-        public Object getItem(final int position) {
-            return mItems.get(position);
-        }
-
-        @Override
-        public long getItemId(final int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(final int position, final View convertView, final ViewGroup parent) {
-
-            View view = convertView;
-
-            if (view == null) {
-                view = LayoutInflater.from(parent.getContext()).inflate(android.R.layout.simple_list_item_1, parent, false);
-            }
-
-            final TextView text = (TextView) view.findViewById(android.R.id.text1);
-
-            text.setText(mItems.get(position - 1));
-
-            return view;
-        }
-    }
 }
 
 

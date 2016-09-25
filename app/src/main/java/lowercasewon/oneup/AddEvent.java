@@ -47,21 +47,24 @@ public class AddEvent extends AppCompatActivity {
                 tempIntrest = Double.parseDouble(intrestRate.getText().toString());
                 tempTotal = Double.parseDouble(totalDue.getText().toString());
 
-                Toast.makeText(getApplicationContext(), "Thank you. Please fill out again to add more debts",
-                        Toast.LENGTH_SHORT).show();
+                temp = new Bill(tempBill, tempMonthly, tempIntrest, tempTotal);
+                billName.setText("");
+                monthlyDue.setText("");
+                intrestRate.setText("");
+                totalDue.setText("");
+                if(temp!= null) {
+                    FinancialOverview.debtList.add(temp);
+                    Toast.makeText(getApplicationContext(), "Thank you. Please fill out again to add more debts",
+                            Toast.LENGTH_SHORT).show();
+
+                }
+
+
             }
         });
-        //need prompts for interest rate, monthly due and total due
-        temp = new Bill(tempBill, tempMonthly, tempIntrest, tempTotal);
-        billName.setText("");
-        monthlyDue.setText("");
-        intrestRate.setText("");
-        totalDue.setText("");
 
-        if(temp!= null) {
-            FinancialOverview.debtList.add(temp);
 
-        }
+
         materialDesignFAM = (FloatingActionMenu) findViewById(R.id.social_floating_menutimisfag);
         floatingActionButton1 = (FloatingActionButton) findViewById(R.id.settings);
         floatingActionButton2 = (FloatingActionButton) findViewById(R.id.financialoverview);
