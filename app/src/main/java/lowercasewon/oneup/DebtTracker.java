@@ -34,6 +34,10 @@ public class DebtTracker extends AppCompatActivity {
             }
         });
         TextView textView9 = (TextView) findViewById(R.id.textView9);
+        for(int c = 0; c < FinancialOverview.debtList.size() - 1; c++) {
+            Object temp = FinancialOverview.debtList.get(0);
+
+        }
         textView9.setText("Current Prioritized Debt: = "); //use debt list to determine highest interest rate
         TextView textView10 = (TextView) findViewById(R.id.textView10);
         textView10.setText("Monthly Loan Progress: = "); //use debt list to find total paid/ total due
