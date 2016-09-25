@@ -46,6 +46,11 @@ public class AddEvent extends AppCompatActivity {
         });
         //need prompts for interest rate, monthly due and total due
         temp = new Bill(tempBill, tempMonthly, tempIntrest, tempTotal);
+        billName.setText("");
+        monthlyDue.setText("");
+        intrestRate.setText("");
+        totalDue.setText("");
+
         if(temp!= null) {
             FinancialOverview.debtList.add(temp);
 
