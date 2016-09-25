@@ -85,7 +85,7 @@ public class SettingsPage extends AppCompatActivity {
         floatingActionButton4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //TODO something when floating action menu first item clicked
-                Intent i = new Intent(c , DebtTracker.class);
+                Intent i = new Intent(c , CurrentDebts.class);
                 startActivity(i);
             }
         });

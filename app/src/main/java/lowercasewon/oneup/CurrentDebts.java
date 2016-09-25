@@ -35,6 +35,7 @@ public class CurrentDebts extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_current_debts);
+        setTitle("Current Debt");
 
 
         ArrayList<Bill> items = FinancialOverview.debtList;
@@ -94,7 +95,7 @@ public class CurrentDebts extends AppCompatActivity {
         floatingActionButton4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //TODO something when floating action menu first item clicked
-                Intent i = new Intent(c , DebtTracker.class);
+                Intent i = new Intent(c , CurrentDebts.class);
                 startActivity(i);
             }
         });

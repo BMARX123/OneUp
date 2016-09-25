@@ -23,24 +23,24 @@ public class MonthlyStatements extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_monthly_statements);
         TextView textView = (TextView) findViewById(R.id.textView);
-        textView.setText("Total Monthly Income: = " + FinancialOverview.totalMonthlyIncum);
+        textView.setText("Total Monthly Income: = " + FinancialOverview.averageMonthlyIncome + "");
         TextView textView2 = (TextView) findViewById(R.id.textView2);
-        textView2.setText("Total Monthly Investments: = " + FinancialOverview.investmentPercentage * FinancialOverview.totalMonthlyIncum);
+        //textView2.setText("Total Monthly Investments: = " + FinancialOverview.investmentPercentage * FinancialOverview.averageMonthlyIncome + "");
         TextView textView3 = (TextView) findViewById(R.id.textView3);
-        textView3.setText("Total Monthly Savings: = " + FinancialOverview.savingsPercentage * FinancialOverview.totalMonthlyIncum);
+        textView3.setText("Total Monthly Savings: = " + FinancialOverview.savingsPercentage * FinancialOverview.averageMonthlyIncome + "");
         TextView textView4 = (TextView) findViewById(R.id.textView4);
-        textView4.setText("Total Monthly Spending: = " + FinancialOverview.moneySpentThisMonth);
+       // textView4.setText("Total Monthly Spending: = " + FinancialOverview.moneySpentThisMonth + "");
         if(!FinancialOverview.hasFourK) {
             TextView textView5 = (TextView) findViewById(R.id.textView5);
-            textView5.setText("Monthly Deposit in IRA: = " + FinancialOverview.totalMonthlyIncum * FinancialOverview.rothIraPercent);
+            textView5.setText("Monthly Deposit in IRA: = " + FinancialOverview.averageMonthlyIncome * FinancialOverview.rothIraPercent + "");
 
         } else {
             TextView textView6 = (TextView) findViewById(R.id.textView6);
-            textView6.setText("Monthly Deposit in 401K: = " + FinancialOverview.totalMonthlyIncum * FinancialOverview.rothIraPercent);
+            textView6.setText("Monthly Deposit in 401K: = " + FinancialOverview.averageMonthlyIncome * FinancialOverview.rothIraPercent + "");
 
         }
         TextView textView7 = (TextView) findViewById(R.id.textView7);
-        textView7.setText("Monthly change in debt = " + -1*(FinancialOverview.totalMonthlyIncum - (FinancialOverview.totalMonthlyIncum*FinancialOverview.investmentPercentage) - (FinancialOverview.totalMonthlyIncum*FinancialOverview.savingsPercentage)-(FinancialOverview.totalMonthlyIncum*FinancialOverview.rothIraPercent)-(FinancialOverview.moneySpentThisMonth)));
+        textView7.setText("Monthly change in debt = " + -1*(FinancialOverview.averageMonthlyIncome - (FinancialOverview.averageMonthlyIncome*FinancialOverview.investmentPercentage) - (FinancialOverview.averageMonthlyIncome*FinancialOverview.savingsPercentage)-(FinancialOverview.averageMonthlyIncome*FinancialOverview.rothIraPercent)-(FinancialOverview.moneySpentThisMonth)) + "");
 
         materialDesignFAM = (FloatingActionMenu) findViewById(R.id.social_floating_menutimisfag);
         floatingActionButton1 = (FloatingActionButton) findViewById(R.id.settings);

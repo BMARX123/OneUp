@@ -28,6 +28,7 @@ public class DebtTracker extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_debt_tracker);
+        setTitle("Debt Tracker");
         button1 = (Button) findViewById(R.id.button1);
         button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View i) {
@@ -40,12 +41,12 @@ public class DebtTracker extends AppCompatActivity {
         Bill tempObj = new Bill("hi", 1, 1, 1);
         for(int c = 1; c < FinancialOverview.debtList.size() - 1; c++) {
             tempObj = temp.get(0);
-                if(temp.get(c).interestRate > temp.get(c).interestRate ) {
+                if(temp.get(c).interestRate > temp.get(c + 1).interestRate ) {
                     tempObj = temp.get(c);
                 }
         }
 
-        textView9.setText("Current Prioritized Debt: = " + tempObj.getNameOfBill()); //use debt list to determine highest interest rate
+        textView9.setText("Current Prioritized Debt: = " + tempObj.getNameOfBill() + ""); //use debt list to determine highest interest rate
         TextView textView10 = (TextView) findViewById(R.id.textView10);
         textView10.setText("Monthly Loan Progress: = "); //use debt list to find total paid/ total due
         TextView textView11 = (TextView) findViewById(R.id.textView11);

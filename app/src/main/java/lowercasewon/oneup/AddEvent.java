@@ -2,6 +2,7 @@ package lowercasewon.oneup;
 
 import android.content.Context;
 import android.content.Intent;
+import android.icu.util.Currency;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -38,6 +39,7 @@ public class AddEvent extends AppCompatActivity {
         intrestRate = (EditText)findViewById(R.id.editText3);
         totalDue = (EditText)findViewById(R.id.editText4);
         button2 = (Button) findViewById(R.id.button2);
+        setTitle("Add Event");
 
 
         button2.setOnClickListener(new View.OnClickListener() {
@@ -104,7 +106,7 @@ public class AddEvent extends AppCompatActivity {
         floatingActionButton4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //TODO something when floating action menu first item clicked
-                Intent i = new Intent(c , DebtTracker.class);
+                Intent i = new Intent(c , CurrentDebts.class);
                 startActivity(i);
             }
         });

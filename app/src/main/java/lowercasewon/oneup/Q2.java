@@ -34,8 +34,8 @@ public class Q2 extends AppCompatActivity {
             public void onClick(View v){
                 FinancialOverview.age = Integer.parseInt(age.getText().toString());
                 FinancialOverview.averageMonthlyIncome = Double.parseDouble(mIncome.getText().toString());
-                FinancialOverview.savingsPercentage = Integer.parseInt(monthlySetAside.getText().toString());
-                FinancialOverview.investmentPercentage = Integer.parseInt(percentInvest.getText().toString());
+                FinancialOverview.savingsPercentage = Double.parseDouble(monthlySetAside.getText().toString());
+                FinancialOverview.investmentPercentage = Double.parseDouble(percentInvest.getText().toString());
 
                 Intent i = new Intent(c, Q3.class);
                 startActivity(i);
