@@ -6,7 +6,17 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="lowercasewon.oneup.SettingsPage">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
+    <Button
+        android:text="Retake questionnaire"
+        android:layout_width="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="39dp"
+        android:id="@+id/retakeQ"
+        android:backgroundTint="@android:color/holo_red_light"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_height="150dp" />
 </RelativeLayout>

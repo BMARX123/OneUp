@@ -1,16 +1,33 @@
 package lowercasewon.oneup;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+
+import java.sql.BatchUpdateException;
+
 
 public class SettingsPage extends AppCompatActivity {
+
+    Button reset;
+    Context c  = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_page);
+        reset = (Button)findViewById(R.id.retakeQ);
+        reset.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent i = new Intent(c, Q1.class);
+                startActivity(i);
+            }
+        });
     }
 
     @Override
