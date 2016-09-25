@@ -31,12 +31,13 @@ public class Q5 extends AppCompatActivity {
                 alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
+                                Intent i = new Intent(c, AddEvent.class);
+                                startActivity(i);
                                 dialog.dismiss();
                             }
                         });
                 alertDialog.show();
-                Intent i = new Intent(c, AddEvent.class);
-                startActivity(i);
+
             }
         });
     }
