@@ -3,6 +3,7 @@ package lowercasewon.oneup;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.Uri;
 
 import android.preference.PreferenceManager;
@@ -12,9 +13,20 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.PercentFormatter;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
@@ -50,6 +62,7 @@ public class FinancialOverview extends AppCompatActivity {
     public Context c = this;
     public NessieClient client = NessieClient.getInstance("88d32ed949123a777cc5763009fbe502");
     boolean test;
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -68,6 +81,9 @@ public class FinancialOverview extends AppCompatActivity {
         Customer customer = new Customer.Builder().firstName(firstName).lastName(lastName).build();
         Account myAccount = new Account.Builder().accountNumber(customer.getId()).balance(0).rewards(0).build();
         debtList = new ArrayList<>();
+
+
+
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         test = prefs.getBoolean("surveyed", true);
@@ -150,6 +166,7 @@ public class FinancialOverview extends AppCompatActivity {
 
 
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
