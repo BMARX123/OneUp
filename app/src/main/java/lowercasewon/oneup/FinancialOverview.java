@@ -67,7 +67,8 @@ public class FinancialOverview extends AppCompatActivity {
         setContentView(R.layout.activity_financial_overview);
         Customer customer = new Customer.Builder().firstName(firstName).lastName(lastName).build();
         Account myAccount = new Account.Builder().accountNumber(customer.getId()).balance(0).rewards(0).build();
-        debtList = new ArrayList();
+        debtList = new ArrayList<>();
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         test = prefs.getBoolean("surveyed", true);
 

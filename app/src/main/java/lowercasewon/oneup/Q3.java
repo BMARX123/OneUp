@@ -29,7 +29,7 @@ public class Q3 extends AppCompatActivity {
             }
         });
 
-        yes.setOnClickListener(new View.OnClickListener() {
+        no.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 FinancialOverview.longTermJob = false;
                 Intent i = new Intent(c, Q6.class);

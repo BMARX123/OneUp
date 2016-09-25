@@ -1,7 +1,9 @@
 package lowercasewon.oneup;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,8 +24,19 @@ public class Q5 extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 FinancialOverview.fourKPercent = Double.parseDouble(percent.getText().toString());
-                //Intent i = new Intent(c, Q6.class);
-                //startActivity(i);
+                AlertDialog alertDialog = new AlertDialog.Builder(c).create();
+
+                alertDialog.setTitle("Thank You for Enetering Your Details");
+                alertDialog.setMessage("Please Add All Bills That You Have");
+                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                alertDialog.show();
+                Intent i = new Intent(c, AddEvent.class);
+                startActivity(i);
             }
         });
     }
