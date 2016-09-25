@@ -5,9 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.reimaginebanking.api.nessieandroidsdk.requestclients.NessieClient;
-
-public class MonthlyAverages extends AppCompatActivity {
+public class AddEvent extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
