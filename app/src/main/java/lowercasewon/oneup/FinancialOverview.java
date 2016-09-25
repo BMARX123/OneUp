@@ -7,12 +7,14 @@ import android.graphics.Color;
 import android.net.Uri;
 
 import android.preference.PreferenceManager;
+import android.support.annotation.ColorInt;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -26,6 +28,7 @@ import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 //import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.ColorFormatter;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.datasets.IPieDataSet;
@@ -43,6 +46,8 @@ import com.reimaginebanking.api.nessieandroidsdk.*;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static lowercasewon.oneup.R.id.textView;
 
 
 public class FinancialOverview extends AppCompatActivity {
@@ -182,9 +187,22 @@ public class FinancialOverview extends AppCompatActivity {
         labels.add(new String("Total Spent"));
         labels.add(new String("Total Left Over"));
 
+        dataset.setValueTextColors(ColorTemplate.createColors(ColorTemplate.COLORFUL_COLORS));
         PieData data = new PieData(dataset);
         pieChart.setData(data);
         pieChart.animateY(5000);
+        ;
+
+
+        TextView textView20 = (TextView) findViewById(R.id.textView20);
+        textView20.setText("Total Savings Percentage: = " + FinancialOverview.savingsPercentage);
+
+        TextView textView22 = (TextView) findViewById(R.id.textView22);
+        textView22.setText("Total Monthly Income: = " + FinancialOverview.totalMonthlyIncum);
+
+
+        TextView textView23 = (TextView) findViewById(R.id.textView23);
+        textView23.setText("Total Investment Percentage: = " + FinancialOverview.rothIraPercent);
 
 
 

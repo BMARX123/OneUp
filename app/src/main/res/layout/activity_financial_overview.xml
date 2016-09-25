@@ -13,8 +13,7 @@
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/chart"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
+        android:layout_height="225dp" />
 
 
     <com.github.clans.fab.FloatingActionMenu
@@ -52,8 +51,7 @@
         fab:menu_shadowYOffset="4dp"
         fab:menu_showShadow="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true">
+        android:layout_centerHorizontal="true">
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/settings"
@@ -112,6 +110,38 @@
 
     </com.github.clans.fab.FloatingActionMenu>
 
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:id="@+id/textView20"
+        android:textSize="18sp"
+        android:layout_below="@+id/chart"
+        android:layout_alignLeft="@+id/social_floating_menutimisfag"
+        android:layout_alignStart="@+id/social_floating_menutimisfag" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
+        android:id="@+id/textView23"
+        android:textSize="18sp"
+        android:layout_below="@+id/textView20"
+        android:layout_alignLeft="@+id/social_floating_menutimisfag"
+        android:layout_alignStart="@+id/social_floating_menutimisfag" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView22"
+        android:textSize="18sp"
+        android:layout_below="@+id/textView23"
+        android:layout_alignLeft="@+id/social_floating_menutimisfag"
+        android:layout_alignStart="@+id/social_floating_menutimisfag"
+        android:layout_marginTop="34dp" />
 
 
 </RelativeLayout>
