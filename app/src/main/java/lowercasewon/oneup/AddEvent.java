@@ -26,10 +26,10 @@ public class AddEvent extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_event);
-        billName = (EditText)findViewById(R.id.fName);
-        monthlyDue = (EditText)findViewById(R.id.lName);
-        intrestRate = (EditText)findViewById(R.id.email);
-        totalDue = (EditText)findViewById(R.id.password);
+        billName = (EditText)findViewById(R.id.editText);
+        monthlyDue = (EditText)findViewById(R.id.editText2);
+        intrestRate = (EditText)findViewById(R.id.editText3);
+        totalDue = (EditText)findViewById(R.id.editText4);
         button2 = (Button) findViewById(R.id.button2);
 
 
@@ -46,6 +46,11 @@ public class AddEvent extends AppCompatActivity {
         });
         //need prompts for interest rate, monthly due and total due
         temp = new Bill(tempBill, tempMonthly, tempIntrest, tempTotal);
+        billName.setText("");
+        monthlyDue.setText("");
+        intrestRate.setText("");
+        totalDue.setText("");
+
         if(temp!= null) {
             FinancialOverview.debtList.add(temp);
 
