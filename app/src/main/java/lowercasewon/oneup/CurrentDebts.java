@@ -35,7 +35,7 @@ public class CurrentDebts extends AppCompatActivity {
         setContentView(R.layout.activity_current_debts);
 
         final GridView grid = (GridView) findViewById(R.id.gridView);
-        final ArrayList<String> items = new ArrayList<String>();
+        ArrayList items = FinancialOverview.debtList;
 
         grid.setAdapter(new GridAdapter(FinancialOverview.debtList));
         materialDesignFAM = (FloatingActionMenu) findViewById(R.id.social_floating_menutimisfag);
@@ -137,21 +137,15 @@ public class CurrentDebts extends AppCompatActivity {
          * Default constructor
          * @param items to fill data to
          */
-        private GridAdapter(final ArrayList<String> items) {
+        private GridAdapter(final ArrayList<Bill> items) {
 
             mCount = items.size() * ROW_ITEMS;
             mItems = new ArrayList<String>(mCount);
 
             // for small size of items it's ok to do it here, sync way
-            for (String item : items) {
-                // get separate string parts, divided by ,
-                final String[] parts = item.split(",");
-
-                // remove spaces from parts
-                for (String part : parts) {
-                    part.replace(" ", "");
-                    mItems.add(part);
-                }
+            for (int c = 0; c < items.size(); c++) {
+                String temp = items.get(c).getNameOfBill() + "," + items.get(c).monthlyDue + "," + items.get(c).getTotalDue();
+                mItems.add(temp);
             }
         }
 
