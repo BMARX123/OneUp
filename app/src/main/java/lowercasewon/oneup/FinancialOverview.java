@@ -38,9 +38,9 @@ public class FinancialOverview extends AppCompatActivity {
     public static double investmentPercentage;
     public static boolean longTermJob;
     public static boolean fourKOffer;
-    public static int fourKPercent;
+    public static double fourKPercent;
     public static boolean hasFourK;
-    public static int rothIraPercent;
+    public static double rothIraPercent;
     public static ArrayList debtList;
     public static double totalMonthlyIncum;
     public static double moneySpentThisMonth;
