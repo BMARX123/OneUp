@@ -11,7 +11,7 @@
     tools:context="lowercasewon.oneup.Q1">
 
     <TextView
-        android:text="First Name"
+        android:text="Age"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="41dp"
@@ -22,7 +22,7 @@
         android:textStyle="bold"/>
 
     <TextView
-        android:text="Last Name"
+        android:text="Average Monthly Income"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="49dp"
@@ -33,7 +33,7 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:text="eMail Address"
+        android:text="Percent Of Monthly Income To Set Aside"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
@@ -44,7 +44,7 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:text="Password"
+        android:text="Percent Of Monthly Income Do You Want To Invest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="62dp"
@@ -67,45 +67,46 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
+        android:inputType="number"
         android:ems="10"
-        android:hint="Type Password Here"
-        android:layout_below="@+id/textView9"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/password" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:hint="Type eMail Here"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/email" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:hint="Type Name Here"
+        android:hint="Enter Age Here"
         android:layout_below="@+id/textView8"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/fName" />
+        android:id="@+id/age" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="Type Name Here"
+        android:inputType="number"
         android:ems="10"
         android:layout_below="@+id/textView10"
+        android:layout_alignRight="@+id/age"
+        android:layout_alignEnd="@+id/age"
+        android:layout_marginTop="14dp"
+        android:hint="Enter Income Here"
+        android:id="@+id/income" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned"
+        android:hint="Enter Percentage Here"
+        android:ems="10"
+        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="16dp"
-        android:id="@+id/lName" />
+        android:id="@+id/incomePercent" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:hint="Enter Percentage Here"
+        android:layout_below="@+id/textView9"
+        android:layout_alignRight="@+id/incomePercent"
+        android:layout_alignEnd="@+id/incomePercent"
+        android:id="@+id/investPercent" />
+
 </RelativeLayout>
