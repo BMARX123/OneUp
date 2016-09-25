@@ -7,10 +7,10 @@ package lowercasewon.oneup;
 public class Bill {
     String nameOfBill;
     double monthlyDue;
-    int interestRate;
+    double interestRate;
     double totalDue;
 
-    public Bill(String nameOfBill, double monthlyDue, int interestRate, double totalDue){
+    public Bill(String nameOfBill, double monthlyDue, double interestRate, double totalDue){
         this.nameOfBill = nameOfBill;
         this.monthlyDue = monthlyDue;
         this.interestRate = interestRate;
@@ -20,7 +20,7 @@ public class Bill {
     public double getTotalDue() {
         return totalDue;
     }
-    public int getInterestRate() {
+    public double getInterestRate() {
         return interestRate;
     }
     public double getMonthlyDue() {
@@ -28,5 +28,18 @@ public class Bill {
     }
     public String getNameOfBill() {
         return nameOfBill;
+    }
+
+    public void setTotalDue(int temp) {
+        this.totalDue = temp;
+    }
+    public void setInterestRate(double temp) {
+        this.interestRate = temp;
+    }
+    public void setMonthlyDue(double temp) {
+        this.monthlyDue = temp;
+    }
+    public void setNameOfBill(String temp) {
+        this.nameOfBill = temp;
     }
 }

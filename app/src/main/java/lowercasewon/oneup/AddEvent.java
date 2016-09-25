@@ -1,16 +1,52 @@
 package lowercasewon.oneup;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class AddEvent extends AppCompatActivity {
-
+    public Context d;
+    public Bill temp;
+    EditText billName;
+    EditText monthlyDue;
+    EditText intrestRate;
+    EditText totalDue;
+    double tempMonthly;
+    double tempIntrest;
+    double tempTotal;
+    String tempBill;
+    Button button2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_event);
+        billName = (EditText)findViewById(R.id.fName);
+        monthlyDue = (EditText)findViewById(R.id.lName);
+        intrestRate = (EditText)findViewById(R.id.email);
+        totalDue = (EditText)findViewById(R.id.password);
+        button2 = (Button) findViewById(R.id.button2);
+
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View i) {
+                tempMonthly = Double.parseDouble(monthlyDue.toString());
+                tempIntrest = Double.parseDouble(intrestRate.toString());
+                tempTotal = Double.parseDouble(totalDue.toString());
+                tempBill = billName.toString();
+
+                Intent j = new Intent(d, CurrentDebts.class);
+                startActivity(j);
+            }
+        });
+        //need prompts for interest rate, monthly due and total due
+        temp = new Bill(tempBill, tempMonthly, tempIntrest, tempTotal);
+        FinancialOverview.debtList.add(temp);
     }
 
     @Override
