@@ -22,9 +22,11 @@ import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
+//import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.interfaces.datasets.IPieDataSet;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.gms.appindexing.Action;
@@ -160,6 +162,27 @@ public class FinancialOverview extends AppCompatActivity {
             }
         });
 
+
+
+        PieChart pieChart = (PieChart) findViewById(R.id.chart);
+
+        List<PieEntry> entries = new ArrayList<PieEntry>();
+            entries.add(new PieEntry(4f, 0));
+            entries.add(new PieEntry(8f, 1));
+            entries.add(new PieEntry(6f, 2));
+            entries.add(new PieEntry(12f, 3));
+
+        IPieDataSet dataset = new PieDataSet(entries, "# of Calls");
+
+        ArrayList<String> labels = new ArrayList<String>();
+        labels.add(new String("Total Saved"));
+        labels.add(new String("Total Invested"));
+        labels.add(new String("Total Spent"));
+        labels.add(new String("Total Left Over"));
+
+        PieData data = new PieData(dataset);
+        pieChart.setData(data);
+        pieChart.animateY(5000);
 
 
 
