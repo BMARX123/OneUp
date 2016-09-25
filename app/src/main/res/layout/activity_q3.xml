@@ -22,29 +22,28 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:text="YES"
-        android:layout_width="wrap_content"
-        android:layout_below="@+id/textView13"
-        android:layout_marginTop="160dp"
-        android:id="@+id/yes"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:backgroundTint="@android:color/holo_blue_light"
-        android:layout_height="128dp" />
-
-    <Button
         android:text="NO"
         android:layout_width="wrap_content"
         android:layout_height="150dp"
         android:id="@+id/no"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_below="@+id/yes"
+        android:backgroundTint="@android:color/holo_red_light"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:backgroundTint="@android:color/holo_red_light" />
+        android:layout_alignRight="@+id/textView13"
+        android:layout_alignEnd="@+id/textView13" />
+
+    <Button
+        android:text="YES"
+        android:layout_width="wrap_content"
+        android:id="@+id/yes"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:layout_height="128dp"
+        android:layout_above="@+id/no"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/no"
+        android:layout_alignEnd="@+id/no" />
 </RelativeLayout>

@@ -79,7 +79,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:ems="10"
         android:layout_below="@+id/textView10"
         android:layout_alignRight="@+id/age"
@@ -91,7 +91,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="numberSigned"
+        android:inputType="numberDecimal"
         android:hint="Enter Percentage Here"
         android:ems="10"
         android:layout_centerVertical="true"
@@ -102,7 +102,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:ems="10"
         android:hint="Enter Percentage Here"
         android:layout_below="@+id/textView9"

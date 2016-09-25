@@ -32,7 +32,7 @@ public class Q2 extends AppCompatActivity {
 
         button.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                FinancialOverview.age = Integer.parseInt(age.toString());
+                FinancialOverview.age = Integer.parseInt(age.getText().toString());
                 FinancialOverview.averageMonthlyIncome = Double.parseDouble(mIncome.getText().toString());
                 FinancialOverview.savingsPercentage = Integer.parseInt(monthlySetAside.getText().toString());
                 FinancialOverview.investmentPercentage = Integer.parseInt(percentInvest.getText().toString());
