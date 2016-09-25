@@ -175,7 +175,7 @@ public class CurrentDebts extends AppCompatActivity {
 
             final TextView text = (TextView) view.findViewById(android.R.id.text1);
 
-            text.setText(mItems.get(position));
+            text.setText(mItems.get(position - 1));
 
             return view;
         }
