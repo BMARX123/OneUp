@@ -35,10 +35,10 @@ public class AddEvent extends AppCompatActivity {
 
         button2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View i) {
-                tempMonthly = Double.parseDouble(monthlyDue.toString());
-                tempIntrest = Double.parseDouble(intrestRate.toString());
-                tempTotal = Double.parseDouble(totalDue.toString());
-                tempBill = billName.toString();
+                tempMonthly = Double.parseDouble(monthlyDue.getText().toString());
+                tempIntrest = Double.parseDouble(intrestRate.getText().toString());
+                tempTotal = Double.parseDouble(totalDue.getText().toString());
+                tempBill = billName.getText().toString();
 
                 Intent j = new Intent(d, CurrentDebts.class);
                 startActivity(j);
