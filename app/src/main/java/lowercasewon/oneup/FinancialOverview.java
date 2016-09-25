@@ -92,6 +92,27 @@ public class FinancialOverview extends AppCompatActivity {
         Account myAccount = new Account.Builder().accountNumber(customer.getId()).balance(0).rewards(0).build();
         debtList = new ArrayList<Bill>();
 
+        PieChart pieChart = (PieChart) findViewById(R.id.chart);
+
+        List<PieEntry> entries = new ArrayList<PieEntry>();
+        entries.add(new PieEntry((float)(totalMonthlyIncum*savingsPercentage) , "Total Savings"));
+        entries.add(new PieEntry((float)(totalMonthlyIncum*investmentPercentage), "Total Invested"));
+        entries.add(new PieEntry((float)(moneySpentThisMonth), "Total Spent"));
+        entries.add(new PieEntry((float)(totalMonthlyIncum - totalMonthlyIncum*savingsPercentage - totalMonthlyIncum*investmentPercentage - moneySpentThisMonth), "Total Left Over"));
+
+        IPieDataSet dataset = new PieDataSet(entries, "# of Calls");
+
+
+        ArrayList<String> labels = new ArrayList<String>();
+        labels.add(new String("Total Saved"));
+        labels.add(new String("Total Invested"));
+        labels.add(new String("Total Spent"));
+        labels.add(new String("Total Left Over"));
+
+        PieData data = new PieData(dataset);
+        pieChart.setData(data);
+        pieChart.animateY(5000);
+        Legend legend = pieChart.getLegend();
 
 
 
@@ -171,28 +192,27 @@ public class FinancialOverview extends AppCompatActivity {
         });
 
 
+        pieChart = (PieChart) findViewById(R.id.chart);
 
-        PieChart pieChart = (PieChart) findViewById(R.id.chart);
+        entries = new ArrayList<PieEntry>();
+            entries.add(new PieEntry((float)(averageMonthlyIncome*savingsPercentage) , "Total Savings"));
+            entries.add(new PieEntry((float)(averageMonthlyIncome*investmentPercentage), "Total Invested"));
+            entries.add(new PieEntry((float)(moneySpentThisMonth), "Total Spent"));
+            entries.add(new PieEntry((float)(averageMonthlyIncome - averageMonthlyIncome*savingsPercentage - averageMonthlyIncome*investmentPercentage - moneySpentThisMonth), "Total Left Over"));
 
-        List<PieEntry> entries = new ArrayList<PieEntry>();
-            entries.add(new PieEntry(4f, 0));
-            entries.add(new PieEntry(8f, 1));
-            entries.add(new PieEntry(6f, 2));
-            entries.add(new PieEntry(12f, 3));
-
-        IPieDataSet dataset = new PieDataSet(entries, "# of Calls");
+        dataset = new PieDataSet(entries, "# of calls");
 
 
-        ArrayList<String> labels = new ArrayList<String>();
+        labels = new ArrayList<String>();
         labels.add(new String("Total Saved"));
         labels.add(new String("Total Invested"));
         labels.add(new String("Total Spent"));
         labels.add(new String("Total Left Over"));
 
-        PieData data = new PieData(dataset);
+        data = new PieData(dataset);
         pieChart.setData(data);
         pieChart.animateY(5000);
-        Legend legend = pieChart.getLegend();
+        legend = pieChart.getLegend();
 
 
 
@@ -200,7 +220,7 @@ public class FinancialOverview extends AppCompatActivity {
         textView20.setText("Total Savings Percentage: = " + FinancialOverview.savingsPercentage);
 
         TextView textView22 = (TextView) findViewById(R.id.textView22);
-        textView22.setText("Total Monthly Income: = " + FinancialOverview.totalMonthlyIncum);
+        textView22.setText("Total Monthly Income: = " + FinancialOverview.averageMonthlyIncome);
 
 
         TextView textView23 = (TextView) findViewById(R.id.textView23);
