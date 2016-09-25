@@ -47,6 +47,7 @@ import com.reimaginebanking.api.nessieandroidsdk.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.R.attr.data;
 import static lowercasewon.oneup.R.id.textView;
 
 
@@ -181,17 +182,17 @@ public class FinancialOverview extends AppCompatActivity {
 
         IPieDataSet dataset = new PieDataSet(entries, "# of Calls");
 
+
         ArrayList<String> labels = new ArrayList<String>();
         labels.add(new String("Total Saved"));
         labels.add(new String("Total Invested"));
         labels.add(new String("Total Spent"));
         labels.add(new String("Total Left Over"));
 
-        dataset.setValueTextColors(ColorTemplate.createColors(ColorTemplate.COLORFUL_COLORS));
         PieData data = new PieData(dataset);
         pieChart.setData(data);
         pieChart.animateY(5000);
-        ;
+
 
 
         TextView textView20 = (TextView) findViewById(R.id.textView20);
