@@ -21,7 +21,7 @@ public class Q5 extends AppCompatActivity {
         percent = (EditText)findViewById(R.id.kPercent);
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                FinancialOverview.fourKPercent = Double.parseDouble(percent.toString());
+                FinancialOverview.fourKPercent = Double.parseDouble(percent.getText().toString());
                 //Intent i = new Intent(c, Q6.class);
                 //startActivity(i);
             }

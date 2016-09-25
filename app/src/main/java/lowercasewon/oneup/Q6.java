@@ -16,12 +16,12 @@ public class Q6 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_q5);
+        setContentView(R.layout.activity_q6);
         next = (Button)findViewById(R.id.button2);
         percent = (EditText)findViewById(R.id.kPercent);
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                FinancialOverview.rothIraPercent = Double.parseDouble(percent.toString());
+                FinancialOverview.rothIraPercent = Double.parseDouble(percent.getText().toString());
                 //Intent i = new Intent(c, Q6.class);
                 //startActivity(i);
             }

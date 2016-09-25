@@ -22,7 +22,7 @@ public class Q2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_q1);
+        setContentView(R.layout.activity_q2);
 
         age = (EditText)findViewById(R.id.age);
         mIncome = (EditText)findViewById(R.id.income);
@@ -33,9 +33,9 @@ public class Q2 extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 FinancialOverview.age = Integer.parseInt(age.toString());
-                FinancialOverview.averageMonthlyIncome = Double.parseDouble(mIncome.toString());
-                FinancialOverview.savingsPercentage = Integer.parseInt(monthlySetAside.toString());
-                FinancialOverview.investmentPercentage = Integer.parseInt(percentInvest.toString());
+                FinancialOverview.averageMonthlyIncome = Double.parseDouble(mIncome.getText().toString());
+                FinancialOverview.savingsPercentage = Integer.parseInt(monthlySetAside.getText().toString());
+                FinancialOverview.investmentPercentage = Integer.parseInt(percentInvest.getText().toString());
 
                 Intent i = new Intent(c, Q3.class);
                 startActivity(i);

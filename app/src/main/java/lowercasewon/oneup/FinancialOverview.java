@@ -72,7 +72,7 @@ public class FinancialOverview extends AppCompatActivity {
         test = prefs.getBoolean("surveyed", true);
 
 
-        if(!prefs.getBoolean("surveyed", true)) {
+        if(test) {
             prefs.edit().putBoolean("surveyed", false).apply();
             Intent i = new Intent(c, Q1.class);
             startActivity(i);

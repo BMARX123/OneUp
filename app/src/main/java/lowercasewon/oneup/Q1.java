@@ -30,10 +30,10 @@ public class Q1 extends AppCompatActivity {
 
         button.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                FinancialOverview.firstName = fName.toString();
-                FinancialOverview.lastName = fName.toString();
-                FinancialOverview.email = eMail.toString();
-                FinancialOverview.password = pWord.toString();
+                FinancialOverview.firstName = fName.getText().toString();
+                FinancialOverview.lastName = fName.getText().toString();
+                FinancialOverview.email = eMail.getText().toString();
+                FinancialOverview.password = pWord.getText().toString();
 
                 Intent i = new Intent(c, Q2.class);
                 startActivity(i);
