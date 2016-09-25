@@ -2,12 +2,22 @@ package lowercasewon.oneup;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.widget.Toast;
+import android.os.Bundle;
+import android.app.Activity;
+import android.content.Context;
+import android.location.Location;
+import android.location.LocationManager;
+import android.widget.TextView;
 
+import android.util.Log;
+import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -22,15 +32,44 @@ import com.reimaginebanking.api.nessieandroidsdk.requestclients.NessieClient;
 
 import static java.lang.reflect.Modifier.FINAL;
 
-public class BankATM extends FragmentActivity implements OnMapReadyCallback {
+public class BankATM extends FragmentActivity implements LocationListener, OnMapReadyCallback {
     public NessieClient client = NessieClient.getInstance("88d32ed949123a777cc5763009fbe502");
     private GoogleMap mMap;
-    Location location;
-    float latitude; // Latitude
-    float longitude; // Longitude
+    // Declaring a Location Manager
+    //protected LocationManager locationManager;
+
+    public BankATM(Context context) {
+        this.mContext = context;
+        getLocation();
+    }
+    private final Context mContext;
+
+    // flag for GPS status
+    boolean isGPSEnabled = false;
+
+    // flag for network status
+    boolean isNetworkEnabled = false;
+
+    boolean canGetLocation = false;
+
+    Location location; // location
+    double latitude; // latitude
+    double longitude; // longitude
+
+    // The minimum distance to change Updates in meters
+    private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10; // 10 meters
+
+    // The minimum time between updates in milliseconds
+    private static final long MIN_TIME_BW_UPDATES = 1000 * 60 * 1; // 1 minute
+
+    // Declaring a Location Manager
+    protected LocationManager locationManager;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle  savedInstanceState) {
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bank_atm);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -49,46 +88,66 @@ public class BankATM extends FragmentActivity implements OnMapReadyCallback {
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
-    @Override
-    public void onMapReady(final GoogleMap googleMap) {
-        LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-
-        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
+    /**
+     * Function to get latitude
+     * */
+    public double getLatitude(){
+        if(location != null){
+            latitude = location.getLatitude();
         }
-        location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            longitude = (float) location.getLongitude();
-            latitude = (float) location.getLatitude();
-            client.ATM.getATMs(latitude, longitude, (float) 1000, new NessieResultsListener() {
-                @Override
-                public void onSuccess(Object result) {
-                    PaginatedResponse<ATM> response = (PaginatedResponse<ATM>) result;
-                    System.out.println(response.getObjectList());
-                    mMap = googleMap;
-                    LatLng latlng;
-                    // Add a marker in Sydney and move the camera
-                    for(int i = 0; i < response.getObjectList().size(); i++) {
-                        latlng = new LatLng(response.getObjectList().get(i).getGeocode().getLng(),response.getObjectList().get(i).getGeocode().getLat());
 
-                        mMap.addMarker(new MarkerOptions().position(latlng));
-                    }
-                    latlng = new LatLng(response.getObjectList().get(0).getGeocode().getLng(),response.getObjectList().get(0).getGeocode().getLat());
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
+        // return latitude
+        return latitude;
+    }
+
+    /**
+     * Function to get longitude
+     * */
+    public double getLongitude(){
+        if(location != null){
+            longitude = location.getLongitude();
+        }
+
+        // return longitude
+        return longitude;
+    }
+    public void onMapReady(final GoogleMap googleMap) {
+
+
+        client.ATM.getATMs((float) getLatitude(), (float)getLongitude(), (float) 1000, new NessieResultsListener() {
+            @Override
+            public void onSuccess(Object result) {
+                PaginatedResponse<ATM> response = (PaginatedResponse<ATM>) result;
+
+                System.out.println(response.getObjectList());
+                mMap = googleMap;
+                LatLng latlng;
+                // Add a marker in Sydney and move the camera
+                for(int i = 0; i < response.getObjectList().size(); i++) {
+                    System.out.print("got through loop \n");
+                    latlng = new LatLng(response.getObjectList().get(i).getGeocode().getLng(),response.getObjectList().get(i).getGeocode().getLat());
+
+                    mMap.addMarker(new MarkerOptions().position(latlng));
                 }
+                latlng = new LatLng(response.getObjectList().get(0).getGeocode().getLng(),response.getObjectList().get(0).getGeocode().getLat());
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
+            }
 
-                @Override
-                public void onFailure(NessieError error) {
-                    System.out.println("u fked up");
-                }
-            });
+            @Override
+            public void onFailure(NessieError error) {
+                System.out.println("u fked up");
+            }
+        });
 
 
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+
+    }
+
+    public Location getLocation() {
+        return location;
     }
 }
