@@ -22,7 +22,7 @@ public class DebtTracker extends AppCompatActivity {
     Button button1;
     FloatingActionMenu materialDesignFAM;
     FloatingActionButton floatingActionButton1, floatingActionButton2, floatingActionButton3, floatingActionButton4, floatingActionButton5, floatingActionButton6, floatingActionButton7;
-
+	//junisdum
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
